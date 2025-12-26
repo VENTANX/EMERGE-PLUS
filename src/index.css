@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emerge-red: #FF3B30;
+  --color-emerge-green: #34C759;
+  --color-emerge-black: #000000;
+  --color-emerge-dark: #09090b;
+
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-siren: siren 1s infinite;
+
+  @keyframes siren {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-black text-white antialiased font-sans selection:bg-emerge-red/30;
+  background-color: #000000;
+  font-family: 'Inter', sans-serif;
+  /* Prevent bounce on iOS */
+  overscroll-behavior-y: none;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply bg-neutral-900/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+.glass-button {
+  @apply bg-white/5 hover:bg-white/10 active:bg-white/15 backdrop-blur-md border border-white/5 transition-all duration-200;
+}
+
+/* Tactical Shapes */
+.clip-path-chamfer {
+  clip-path: polygon(10px 0, 100% 0,
+      100% calc(100% - 10px), calc(100% - 10px) 100%,
+      0 100%, 0 10px);
+}
+
+/* Custom Scrollbar for Tactical Look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+/* Panic Mode Overlay */
+.panic-active {
+  animation: panic-flash 1s infinite;
+}
+
+@keyframes panic-flash {
+  0% {
+    box-shadow: inset 0 0 0 0px #FF3B30;
+  }
+
+  50% {
+    box-shadow: inset 0 0 100px 20px rgba(255, 59, 48, 0.5);
+  }
+
+  100% {
+    box-shadow: inset 0 0 0 0px #FF3B30;
+  }
+}
