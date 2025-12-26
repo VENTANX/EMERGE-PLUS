@@ -1,5 +1,5 @@
 # Emerge Plus: Enhanced Emergency Response System
-(./Screenshots/1.png)
+> ![Main](./Screenshots/1.png)
 
 > **Author / Developer**: Oussama Aslouj
 
